@@ -1,0 +1,48 @@
+clc, clear
+
+% PROJETO – IMPLEMENTAÇÃO DE UM SISTEMA DE CONTROLE 
+% EM UM CONJUNTO DE TANQUES INTERATIVOS 
+
+% VARIAVEIS DE ESTADO: hi (i=1,2,3,4).
+
+
+% CHUTE INICIAL (BASEADO NA TAB.)
+% hi(0) = [16.3,13.7,6.0,8.1]
+
+x0 = [16,13,6,8]';
+
+
+% ATRIBUICAO DE VALORES: PARAMETROS
+
+v   = [0.5,0.5]             ;
+a   = [2.05,2.26,2.37,2.07] ;
+A   = 730                   ;
+GG1 = 0.3                   ;
+GG2 = 0.3                   ;
+k   = [7.45,7.30]           ;
+kd  = [0.049, 0.049]        ;
+G   = 981                   ;
+
+% ATRIBUICAO DE VALORES: PERTURBACOES
+
+d1 = 0;
+d2 = 0;
+
+% 2. CALCULANDO OS ZEROS COND. ESPECIFICADAS;
+
+% [] - sem lista de opcoes
+[xee,fval] = fsolve('prj4modeloee',x0,[],);
+
+yee = xee(4)/xee(3);
+
+% 3. RESULTADOS
+
+% 3.1 Cond. operacao
+disp('Calculo dos ponto de operacao (Fi = 0.016783) ,')
+disp(xee)
+
+% 3.2 Saida medida (NAMW - peso molecular medio)
+disp('NAMW - peso molecular medio')
+disp(yee)
+
+

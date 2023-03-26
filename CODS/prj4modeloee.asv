@@ -1,0 +1,34 @@
+function sis = prj4modeloee(x,v,a,A,GG1,GG2,k,kd,d,g)
+
+
+    % PROJETO – IMPLEMENTAÇÃO DE UM SISTEMA DE CONTROLE 
+    % EM UM CONJUNTO DE TANQUES INTERATIVOS 
+    
+    % FUNCAO PARA CALCULO DOS PONTOS DE OPERACAO
+    
+    % TANQUES IDENTICOS
+    A1 = A; A2 = A; A3 = A; A4 = A;
+    
+    % EVITANDO O USO EXCESSIVO DE PARENTESES NO MODELO
+    KK1  = k(1); KK2 = k(2) ;
+    kd1 = kd(1); kd2 = kd(2);
+    d1  = d(1) ; d2  = d(2) ;
+    v1  = v(1) ; v2  = v(2) ;
+    
+    % VARIAVEIS DE ESTADO
+    h1  = x(1)                    ;
+    h2  = x(2)                    ;
+    h3  = x(3)                    ;
+    h4  = x(4)                    ;
+              
+    % FUNCOES DO MODELO NO E.E. 
+    f1 = -(a(1)/A1)*(2*g*h1)^0.5  + (a(3)/A1)*(2*g*h3)^0.5 + (GG1*KK1/A1)*v1 ;
+    f2 = -(a(2)/A2)*(2*g*h2)^0.5  + (a(4)/A2)*(2*g*h4)^0.5 + (GG2*KK2/A2)*v2 ;
+    f3 = -(a(3)/A3)*(2*g*h3)^0.5  + ((1-GG2)*KK2/A3)*v2 - kd1*d1/A3          ;
+    f4 = -(a(4)/A4)*(2*g*h4)^0.5  + ((1-GG1)*KK1/A4)*v1 - kd2*d2/A4          ;
+
+    
+    % SISTEMAS
+    sis = [f1; f2; f3; f4];
+    
+ 

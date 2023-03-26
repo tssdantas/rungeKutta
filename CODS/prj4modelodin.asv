@@ -1,0 +1,14 @@
+function sis = prj7modelodin(t,y,flag,par)
+
+    v   = [par(1), par(2)]
+    a   = [par(3),par(4),par(5),par(6)]
+    A   = par(7)
+    GG1 = par(8)
+    GG2 = par(9)
+    k   = [par(10), par(11)]
+    kd  = [par(12), par(13)]
+    d   = 
+    g
+    
+    sis = prj4modeloee(x,v,a,A,GG1,GG2,k,kd,d,g);
+end

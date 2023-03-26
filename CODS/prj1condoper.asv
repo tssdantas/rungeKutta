@@ -1,0 +1,48 @@
+clc, clear
+
+% PROJETO – IMPLEMENTAÇÃO DE UM SISTEMA DE CONTROLE 
+% EM UM CONJUNTO DE TANQUES INTERATIVOS 
+
+% VARIAVEIS DE ESTADO: hi (i=1,2,3,4).
+
+
+% CHUTE INICIAL (BASEADO NA INF. DO TEXTO.)
+% CAee=1.25  CBee=0.90 Tee=407.15
+
+x0 = [16,13,6,8]';
+
+
+% ATRIBUICAO DE VALORES: PARAMETROS
+
+k10 = 1.287E12 ;
+k20 = 1.287E12 ;
+k30 = 9.043E09 ;
+
+Er1 = -9758.3 ;
+Er2 = -9758.3 ;
+Er3 = -8560   ;
+
+DeltaH1 = 4.2    ;
+DeltaH2 = -11    ;
+DeltaH3 = -41.85 ; 
+
+rho =  0.9342 ;
+cp  =  3.01   ;
+QH  = -451.51 ;
+
+u = 
+
+
+% CALCULANDO OS ZEROS COND. ESPECIFICADAS;
+% [] - sem lista de opcoes
+[xee,fval] = fsolve('prj4modeloee',x0,[],v,a,A,GG1,GG2,k,kd,d,g);
+
+disp('Ponto de operacao: ')
+xee
+
+
+
+
+
+
+
